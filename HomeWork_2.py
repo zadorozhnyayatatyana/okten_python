@@ -26,8 +26,10 @@ add('todo 3')
 
 '''2) протипізувати перше завдання'''
 
+from typing import Callable
 
-def notebook() -> list:
+
+def notebook() -> Callable:
     todo_list = []
 
     def add_todo(todo: str):
@@ -75,11 +77,11 @@ print(expanded_form(70304))
 def counter(func):
     count = 0
 
-    def calc():
+    def calc(*args, **kwargs):
         nonlocal count
         count += 1
         print('count: ', count)
-        res = func()
+        res = func(*args, **kwargs)
         print('----------------------------')
         return res
 
